@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { axiosWithAuth } from "./axiosWithAuth";
+import axiosWithAuth from "./axiosWithAuth";
 import Bubbles from "./Bubbles";
 
 const initialColor = {
@@ -41,11 +41,6 @@ const ColorList = ({ colors, updateColors, ...props }) => {
         })
         .catch((err) => console.log(err));
 }
-
-
-<div type="button" className="delete-button" onClick={() => deleteMovie(params.id)}>
-            Delete
-        </div>
 
   return (
     <div className="colors-wrap">
