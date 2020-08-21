@@ -15,11 +15,13 @@ const Login = props =>{
   }
 
   const handleSubmit = (e) => {
+    e.preventDefault()
     axiosWithAuth()
     .post('/api/login', login)
     .then(res => {
-      console.log(res.data)
-      localStorage.setItem('token', res.data.payload)
+      console.log('TEST TEST TEST ', res.data)
+      const token = JSON.stringify(res.data.payload)
+      localStorage.setItem('token', token)
       setLogin(login)
       props.history.push('/protected')
     })
@@ -31,7 +33,7 @@ const Login = props =>{
   return (
     <div>
       <h1>Welcome to the Bubble App!</h1>
-      <form onChange={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input type='text' name='username' onChange={handleChange} value={login.username}/>
         <input type='password' name='password' onChange={handleChange} value={login.password}/>
         <button type='submit'>Login</button>
