@@ -1,4 +1,8 @@
 import axiosWithAuth  from './axiosWithAuth'
+import {render, screen, waitFor} from '@testing-library/react'
+import BubblePage from './BubblePage'
+import React from 'react'
+
 
 const testColors = () => {
     axiosWithAuth()
